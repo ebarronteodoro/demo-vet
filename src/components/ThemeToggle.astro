@@ -1,0 +1,36 @@
+---
+import Moon from "./icons/Moon.astro";
+import Sun from "./icons/Sun.astro";
+---
+
+<div class="relative ml-2">
+  <button
+    id="theme-toggle-btn"
+    class="appearance-none border-none flex hover:scale-125 size-6 justify-center transition items-center active:scale-105"
+  >
+    <Sun id="light" class="theme-toggle-icon absolute size-5 transition-all scale-0 dark:scale-100" />
+    <Moon
+      id="dark"
+      class="theme-toggle-icon absolute size-5 transition-all scale-100 dark:scale-0"
+    />
+  </button>
+</div>
+
+<script is:inline>
+  const themeToggleBtn = document.getElementById("theme-toggle-btn");
+
+  themeToggleBtn.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+    const isDarkMode = document.documentElement.classList.contains("dark");
+    if (isDarkMode) {
+      localStorage.setItem("dark", "true");
+    } else {
+      localStorage.removeItem("dark");
+    }
+  });
+
+  const isDarkMode = localStorage.getItem("dark") === "true";
+  if (isDarkMode) {
+    document.documentElement.classList.add("dark");
+  }
+</script>

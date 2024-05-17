@@ -1,0 +1,23 @@
+---
+import GradientButton from "./GradientButton.astro";
+const texts = {
+    title: "Bienvenido a PetHealth",
+    desc: "Tu socio de confianza en el cuidado de mascotas. Ofrecemos servicios veterinarios completos para mantener a tus amigos peludos sanos y felices. Ya sea una revisión rutinaria o una emergencia, nuestro equipo experimentado está aquí para ofrecer la atención de la más alta calidad."
+}
+---
+
+<section class="flex mt-36 mb-10 md:mt-40 md:mb-24 px-4 text-mirage-950 dark:text-white max-w-screen-xl mx-auto">
+    <div class="w-full md:w-3/5 md:pl-20 my-auto transition">
+        <h1 class="font-bold text-4xl md:text-6xl">{texts.title}</h1>
+        <p class="text-pretty text-lg xl:text-xl mt-5 md:my-9">
+            {texts.desc}
+        </p>
+        <div class="buttons flex mt-4 md:mt-0 gap-4 md:gap-3 justify-center md:justify-normal">
+            <GradientButton>Contáctanos</GradientButton>	
+            <GradientButton>Nuestro Servicio</GradientButton>
+        </div>
+    </div>
+    <div class="w-2/5 h-96 justify-center hidden md:flex">
+        <img class="h-64 my-auto lg:h-full drop-shadow-lg scale-0 md:scale-100" src="/animals/dog.avif" loading="eager" alt="Perro">
+    </div>
+</section>
